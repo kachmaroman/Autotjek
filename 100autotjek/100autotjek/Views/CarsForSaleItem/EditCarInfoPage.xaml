@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize"
+             x:Class="_100autotjek.Views.CarsForSaleItem.EditCarInfoPage"
+             Title="{x:Static resx:AppResources.EditCarInfoTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="20" BackgroundColor="{StaticResource WhiteColor}">
+
+            <Image x:Name="CarImage"  Style="{StaticResource EditCarInfoImage}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LoadCarImageCommand}" 
+                                              CommandParameter="{x:Reference CarImage}" 
+                                              NumberOfTapsRequired="2"/>
+                </Image.GestureRecognizers>
+
+                <Image.Source>
+                    <UriImageSource Uri="{Binding Car.ImageUrl}"
+                                    CachingEnabled="False"/>
+                </Image.Source>
+            </Image>
+
+            <Label Text="{Binding FullCarName}" Style="{StaticResource CarsForSaleLabel}" FontSize="Large"/>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoPrice}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Entry Text="{Binding Car.Price}" Style="{StaticResource CarsForSaleEntry}">
+                    <Entry.Keyboard>
+                        <Keyboard x:FactoryMethod="Create">
+                            <x:Arguments>
+                                <KeyboardFlags>None</KeyboardFlags>
+                            </x:Arguments>
+                        </Keyboard>
+                    </Entry.Keyboard>
+                </Entry>
+            </StackLayout>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoRun}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Entry Text="{Binding Car.Run}" Style="{StaticResource CarsForSaleEntry}">
+                    <Entry.Keyboard>
+                        <Keyboard x:FactoryMethod="Create">
+                            <x:Arguments>
+                                <KeyboardFlags>None</KeyboardFlags>
+                            </x:Arguments>
+                        </Keyboard>
+                    </Entry.Keyboard>
+                </Entry>
+            </StackLayout>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoEquipment}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Editor Text="{Binding Car.Equipment}" TextColor="{StaticResource RhinoColor}" HeightRequest="100" InputTransparent="{Binding IsEditDisabled}">
+                    <Editor.Keyboard>
+                        <Keyboard x:FactoryMethod="Create">
+                            <x:Arguments>
+                                <KeyboardFlags>None</KeyboardFlags>
+                            </x:Arguments>
+                        </Keyboard>
+                    </Editor.Keyboard>
+                </Editor>
+            </StackLayout>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoRegistrationDate}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Label Text="{Binding Car.LastRegistrationDate.Date, StringFormat='{0:MM.dd.yyyy}'}" FontSize="Medium" TextColor="{StaticResource RhinoColor}"/>
+            </StackLayout>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoCheckDate}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Label Text="{Binding Car.ServiceCheckDate, StringFormat='{0:MM.dd.yyyy}'}" FontSize="Medium" TextColor="{StaticResource RhinoColor}"/>
+            </StackLayout>
+
+            <Button x:Name="SaveBtn"
+                    Text="{x:Static resx:AppResources.CarsForSaleSave}" 
+                    Command="{Binding UpdateCarCommand}" 
+                    Style="{StaticResource CarsForSaleButton}"/>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

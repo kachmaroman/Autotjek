@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize;assembly=100autotjek"
+             xmlns:controls="clr-namespace:_100autotjek.Controls"
+             xmlns:indicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:sflv="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             xmlns:padView="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="_100autotjek.App">
+
+    <Application.Resources>
+
+        <!-- Application resource dictionary -->
+
+        <ResourceDictionary>
+
+            <!-- COLORS -->
+            <Color x:Key="HeatherColor">#C4D1DB</Color>
+            <Color x:Key="RhinoColor">#293862</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="PorcelainColor">#E4E8EB</Color>
+
+            <OnPlatform x:TypeArguments="Thickness" x:Key="MainMenuPadding">
+                <On Platform="Android" Value="20, 30" />
+                <On Platform="iOS" Value="20, 10" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ContactInfoDateTimePadding">
+                <On Platform="Android" Value="0" />
+                <On Platform="iOS" Value="5" />
+            </OnPlatform>
+
+            <!-- FONT FAMILIES -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="MainMenuFontFamily">
+                <On Platform="iOS" Value="AvenirNextCondensed-Bold" />
+                <On Platform="Android" Value="Fonts/AvenirNextCondensed-Bold.ttf#AvenirNextCondensed-Bold" />
+            </OnPlatform>
+
+            <!-- FONT SIZES -->
+            <x:Double x:Key="MainMenuOptionFontSize">17</x:Double>
+            <x:Double x:Key="NavigationBarTitleFontSize">18</x:Double>
+
+            <!-- IMAGE NAMES -->
+            <x:String x:Key="InstructionImage">InstructionImage.png</x:String>
+            <x:String x:Key="AutotjekLogo">AutotjekLogo.png</x:String>
+            <x:String x:Key="LogoutIcon">LogoutIcon.png</x:String>
+            <x:String x:Key="PhotoIcon">PhotoIcon.png</x:String>
+            <x:String x:Key="BackIcon">BackIcon.png</x:String>
+            <x:String x:Key="AddIcon">AddIcon.png</x:String>
+            <x:String x:Key="HappyDocIcon">HappyDocIcon.png</x:String>
+            <x:String x:Key="UnhappyDocIcon">UnhappyDocIcon.png</x:String>
+
+
+            <!-- MAIN MENU -->
+            <Style x:Key="MainMenuNavBarStackLayout" TargetType="StackLayout">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Padding" Value="10, 5"/>
+                <Setter Property="Spacing" Value="-15"/>
+            </Style>
+
+            <Style x:Key="MainMenuLogoIconImage" TargetType="Image">
+                <Setter Property="Source" Value="{StaticResource AutotjekLogo}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="WidthRequest" Value="200"/>
+            </Style>
+
+            <Style x:Key="MainMenuLogoutIconImage" TargetType="Image">
+                <Setter Property="Source" Value="{StaticResource LogoutIcon}"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="HeightRequest" Value="15"/>
+                <Setter Property="WidthRequest" Value="15"/>
+            </Style>
+
+            <Style x:Key="MainMenuImageOptionImage" TargetType="Image">
+                <Setter Property="WidthRequest" Value="90"/>
+                <Setter Property="HeightRequest" Value="90"/>
+            </Style>
+
+            <Style x:Key="MainMenuNameOptionLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontSize" Value="{StaticResource MainMenuOptionFontSize}"/>
+                <Setter Property="FontFamily" Value="{StaticResource MainMenuFontFamily}"/>
+            </Style>
+
+            <Style x:Key="MainMenuContentView" TargetType="ContentView">
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="Padding" Value="{StaticResource MainMenuPadding}"/>
+            </Style>
+
+
+            <!-- FRAMES -->
+            <Style x:Key="RhinoCircleFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="CornerRadius" Value="35"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+            <Style x:Key="LoadingActivityIndicator" TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="IsRunning" Value="{Binding IsLoading}"/>
+                <Setter Property="IsVisible" Value="{Binding IsLoading}"/>
+                <Setter Property="Margin" Value="0, 5, 0, 0"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+            <!-- SCAN DRIVING LICENSE -->
+            <Style x:Key="ScanDrivingLicenseInstructLabel" TargetType="Label">
+                <Setter Property="Text" Value="{x:Static resx:AppResources.ScanDrivingInstructionOfScan}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="ScanDrivingLicenseInstructImage" TargetType="Image">
+                <Setter Property="Source" Value="{StaticResource InstructionImage}"/>
+                <Setter Property="Aspect" Value="AspectFill"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="ScanDrivingLicenseCprNumberLabel" TargetType="Label">
+                <Setter Property="Text" Value="{x:Static resx:AppResources.ScanDrivingCPRNumber}"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="ScanDrivingLicenseCprNumberEntry" TargetType="Entry">
+                <Setter Property="Text" Value="{Binding TestDriveInfo.SocialSecurityNumber}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="Keyboard" Value="Numeric"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="IsEnabled" Value="{Binding IsLoaded}"/>
+            </Style>
+
+            <Style x:Key="ScanDrivingLicenseButtonsStackLayout" TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Spacing" Value="40"/>
+                <Setter Property="IsEnabled" Value="{Binding IsLoaded}"/>
+            </Style>
+
+            <Style x:Key="ScanDrivingLicensePhotoImage" TargetType="Image">
+                <Setter Property="Source" Value="{StaticResource PhotoIcon}"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="30"/>
+            </Style>
+
+            <Style x:Key="ContinueLabel" TargetType="Label">
+                <Setter Property="Text" Value="{x:Static resx:AppResources.ContinueButton}"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="WidthRequest" Value="30"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
+            <Style x:Key="ContinueButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="Text" Value="{x:Static resx:AppResources.ContinueButton}"/>
+            </Style>
+
+
+            <!-- DRIVER INFO -->
+            <Style x:Key="DriverInfoStackLayout" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="0"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="DriverInfoLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <Style x:Key="DriverInfoEntry" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="IsEnabled" Value="{Binding IsLoaded}"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+            </Style>
+
+            <Style x:Key="DriverInfoSeparateLineBoxView" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Color" Value="Gray"/>
+            </Style>
+
+
+            <!-- TEST DRIVE INFO -->
+            <Style x:Key="TestDriveInfoStackLayout" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="0"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="TestDriveInfoLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <Style x:Key="TestDriveInfoPicker" TargetType="controls:CustomPicker">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="Image" Value="ic_arrow_drop_down"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="ItemsSource" Value="{Binding TestNumberPlates}"/>
+                <Setter Property="SelectedItem" Value="{Binding SelectedPlateNumber}"/>
+                <Setter Property="Title" Value="{x:Static resx:AppResources.TestDriveInfoPickerTitle}"/>
+            </Style>
+
+            <Style x:Key="TestDriveInfoSeparateLineBoxView" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Color" Value="Gray"/>
+            </Style>
+
+            <Style x:Key="TestDriveInfoDatePicker" TargetType="DatePicker">
+                <Setter Property="Format" Value="MM.dd.yyyy"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+            </Style>
+
+            <Style x:Key="TestDriveInfoTimePicker" TargetType="TimePicker">
+                <Setter Property="Format" Value="hh:mm"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+            </Style>
+
+
+            <!-- LIST OF CARS -->
+            <Style x:Key="ListOfCarsPullToRefresh" TargetType="pulltoRefresh:SfPullToRefresh">
+                <Setter Property="TransitionMode" Value="SlideOnTop"/>
+                <Setter Property="RefreshContentHeight" Value="50"/>
+                <Setter Property="RefreshContentWidth" Value="50"/>
+                <Setter Property="IsRefreshing" Value="False"/>
+                <Setter Property="PullingThreshold" Value="150"/>
+                <Setter Property="ProgressStrokeWidth" Value="2"/>
+                <Setter Property="IsRefreshing" Value="{Binding IsRefreshing}"/>
+                <Setter Property="ProgressStrokeColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="ProgressBackgroundColor" Value="{StaticResource WhiteColor}"/>
+            </Style>
+
+            <Style x:Key="ListOfCarsList" TargetType="sflv:SfListView">
+                <Setter Property="ItemsSource" Value="{Binding Cars}"/>
+                <Setter Property="ItemSpacing" Value="10"/>
+                <Setter Property="AutoFitMode" Value="Height"/>
+                <Setter Property="SelectionMode" Value="None"/>
+                <Setter Property="IsScrollBarVisible" Value="False"/>
+                <Setter Property="IsStickyGroupHeader" Value="True"/>
+                <Setter Property="SelectionGesture" Value="DoubleTap"/>
+            </Style>
+
+            <Style x:Key="ListOfCarsModelLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            </Style>
+            
+            <Style x:Key="ListOfCarsGroupLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="ListOfCarsSwipeLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Text" Value="{x:Static resx:AppResources.ListOfCarsRemove}"/>
+            </Style>
+
+            <Style x:Key="ListOfCarsAddCarFrame" TargetType="Frame">
+                <Setter Property="Margin" Value="10, 20"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="CornerRadius" Value="35"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource RhinoColor}"/>
+            </Style>
+
+
+            <!-- SIGNATURE -->
+            <Style x:Key="SignatureGrid" TargetType="Grid">
+                <Setter Property="Padding" Value="10, 0, 10, 10"/>
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="SignatureLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="SignaturePadView" TargetType="padView:SignaturePadView">
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="StrokeWidth" Value="3"/>
+                <Setter Property="SignatureLineColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="PromptTextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="ClearTextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="CaptionTextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="ClearText" Value="{x:Static resx:AppResources.SignatureClear}"/>
+                <Setter Property="CaptionText" Value="{x:Static resx:AppResources.SignatureCaption}"/>
+            </Style>
+
+            <!-- RESULT -->
+            <Style x:Key="ResultStackLayout" TargetType="StackLayout">
+                <Setter Property="Padding" Value="20, 0"/>
+                <Setter Property="Spacing" Value="5"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+            <Style x:Key="ResultLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+
+            <!-- CAR SELECTON -->
+            <Style x:Key="LoadingBusyIndicator" TargetType="indicator:SfBusyIndicator">
+                <Setter Property="AnimationType" Value="SlicedCircle"/>
+                <Setter Property="IsVisible" Value="{Binding IsLoading}"/>
+                <Setter Property="IsBusy" Value="{Binding IsLoading}"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="Title" Value="{x:Static resx:AppResources.BusyIndicatorTitle}"/>
+            </Style>
+
+
+            <!-- CARS FOR SALE -->
+            <Style x:Key="CarsForSaleLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="CarsForSaleEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="CarsForSaleButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="WidthRequest" Value="130"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            </Style>
+
+            <x:TimeSpan x:Key="qwe">0,0,10</x:TimeSpan>
+
+            <Style x:Key="CarsForSaleImage" TargetType="ffimageloading:CachedImage">
+                <Setter Property="WidthRequest" Value="120"/>
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="LoadingPlaceholder" Value="loading.gif"/>
+                <Setter Property="ErrorPlaceholder" Value="error.png"/>
+                <Setter Property="CacheDuration" Value="{StaticResource qwe}"/>
+                
+                <Setter Property="Aspect" Value="AspectFill"/>
+                <Setter Property="DownsampleToViewSize" Value="True"/>
+            </Style>
+
+
+            <!-- EDIT CAR INFO -->
+            <Style x:Key="EditCarInfoImage" TargetType="Image">
+                <Setter Property="Source" Value="{Binding Car.ImageUrl}"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="InputTransparent" Value="{Binding IsEditDisabled}"/>
+            </Style>
+
+
+            <!-- SEACH CAR -->
+            <Style x:Key="SearchCarGrid" TargetType="Grid">
+                <Setter Property="Padding" Value="20, 10"/>
+                <Setter Property="RowSpacing" Value="30"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}"/>
+            </Style>
+
+            <Style x:Key="SearchCarLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="SearchCarImageEntry" TargetType="controls:CustomImageEntry">
+                <Setter Property="Image" Value="dk"/>
+                <Setter Property="FontSize" Value="43"/>
+                <Setter Property="LineColor" Value="Red"/>
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="SearchCarButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource RhinoColor}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="WidthRequest" Value="130"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="CornerRadius" Value="0"/>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+                <Setter Property="Text" Value="{x:Static resx:AppResources.SearchCarSearch}"/>
+            </Style>
+
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

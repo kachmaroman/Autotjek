@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize"
+             xmlns:controls="clr-namespace:_100autotjek.Controls"
+             x:Class="_100autotjek.Views.DocItem.TestDriveInfoPage"
+             Title="{x:Static resx:AppResources.TestDriveInfoTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+
+        <StackLayout Spacing="20" Padding="10, 0, 10, 10" BackgroundColor="{StaticResource WhiteColor}">
+            <controls:CustomStepProgressBar StepColor="{StaticResource RhinoColor}" Steps="5" StepSelected="2" />
+
+            <StackLayout Spacing="0" Margin="0, -15, 0, 0" VerticalOptions="FillAndExpand">
+                <Label Style="{StaticResource TestDriveInfoLabel}" Text="{x:Static resx:AppResources.TestDriveInfoDriver}"/>
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Label TextColor="{StaticResource RhinoColor}" Text="{Binding TestDriveInfo.FirstName}"/>
+                    <Label TextColor="{StaticResource RhinoColor}" Text="{Binding TestDriveInfo.LastName}"/>
+                </StackLayout>
+                <Label TextColor="{StaticResource RhinoColor}" Text="{Binding TestDriveInfo.Address}"/>
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Label TextColor="{StaticResource RhinoColor}" Text="{Binding TestDriveInfo.PostCode}"/>
+                    <Label TextColor="{StaticResource RhinoColor}" Text="{Binding TestDriveInfo.City}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Spacing="5" VerticalOptions="FillAndExpand">
+                <Label Style="{StaticResource TestDriveInfoLabel}" Text="{x:Static resx:AppResources.TestDriveInfoPhone}"/>
+                <Entry Style="{StaticResource DriverInfoEntry}" Text="{Binding TestDriveInfo.Phone}" Keyboard="Telephone"/>
+            </StackLayout>
+
+            <StackLayout Spacing="5" VerticalOptions="FillAndExpand">
+                <Label Style="{StaticResource TestDriveInfoLabel}" Text="{x:Static resx:AppResources.TestDriveInfoEmail}"/>
+                <Entry Style="{StaticResource DriverInfoEntry}" Text="{Binding TestDriveInfo.Email}" Keyboard="Email"/>
+            </StackLayout>
+
+            <StackLayout Spacing="5" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="150">
+                <Label Style="{StaticResource TestDriveInfoLabel}" Text="{x:Static resx:AppResources.TestDriveInfoPlateNumber}"/>
+                <controls:CustomPicker Style="{StaticResource TestDriveInfoPicker}" ItemDisplayBinding="{Binding PlateNumber}"/>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource TestDriveInfoStackLayout}" Spacing="10">
+                <Label Style="{StaticResource TestDriveInfoLabel}" Text="{x:Static resx:AppResources.TestDriveInfoTime}"/>
+
+                <BoxView Style="{StaticResource TestDriveInfoSeparateLineBoxView}"/>
+
+                <StackLayout Orientation="Horizontal" Spacing="0">
+                    <Label Style="{StaticResource TestDriveInfoLabel}" VerticalOptions="Center" 
+                           FontAttributes="None" Text="{x:Static resx:AppResources.TestDriveInfoStartTime}"/>
+                    <DatePicker x:Name="StartDate"
+                            Date="{Binding TestDriveInfo.StartDate}"
+                            Style="{StaticResource TestDriveInfoDatePicker}" 
+                            PropertyChanging="ValidateDateAndTime"/>
+                    <TimePicker x:Name="StartTime" 
+                            Time="{Binding StartTime}"
+                            Style="{StaticResource TestDriveInfoTimePicker}" 
+                            PropertyChanging="ValidateDateAndTime"/>
+                </StackLayout>
+
+                <BoxView Style="{StaticResource TestDriveInfoSeparateLineBoxView}"/>
+
+                <StackLayout Orientation="Horizontal" Spacing="0">
+                    <Label Style="{StaticResource TestDriveInfoLabel}" VerticalOptions="Center" 
+                           FontAttributes="None" Text="{x:Static resx:AppResources.TestDriveInfoEndTime}"/>
+                    <DatePicker x:Name="EndDate" 
+                            Date="{Binding TestDriveInfo.EndDate}"
+                            Style="{StaticResource TestDriveInfoDatePicker}" 
+                            MinimumDate="{Binding Source={x:Reference StartDate}, Path=Date}" 
+                            PropertyChanging="ValidateDateAndTime"/>
+                    <TimePicker x:Name="EndTime" 
+                            Time="{Binding EndTime}"
+                            Style="{StaticResource TestDriveInfoTimePicker}" 
+                            PropertyChanging="ValidateDateAndTime" />
+                </StackLayout>
+
+                <BoxView Style="{StaticResource TestDriveInfoSeparateLineBoxView}"/>
+            </StackLayout>
+
+            <Button Style="{StaticResource ContinueButton}" Command="{Binding ContinueCommand}"/>
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize"
+             xmlns:sflv="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:dataSource="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
+             xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             xmlns:controls="clr-namespace:_100autotjek.Controls;assembly=100autotjek"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="_100autotjek.Views.DocItem.ListOfCarsPage"
+             Title="{x:Static resx:AppResources.ListOfCarsTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout BackgroundColor="{StaticResource WhiteColor}">
+        <StackLayout Spacing="0" BackgroundColor="{StaticResource HeatherColor}">
+            <controls:CustomStepProgressBar StepColor="{StaticResource RhinoColor}" Steps="5" StepSelected="3"/>
+
+            <SearchBar x:Name="SearchBar" Placeholder="{x:Static resx:AppResources.ListOfCarsSearch}" BackgroundColor="{StaticResource HeatherColor}" />
+        </StackLayout>
+        
+        <pulltoRefresh:SfPullToRefresh x:Name="PullToRefresh" Style="{StaticResource ListOfCarsPullToRefresh}" VerticalOptions="FillAndExpand">
+            <pulltoRefresh:SfPullToRefresh.PullableContent>
+                <sflv:SfListView x:Name="ListOfCars" Style="{StaticResource ListOfCarsList}" 
+                                 AllowGroupExpandCollapse="True" 
+                                 SelectionBackgroundColor="Gray">
+                    <sflv:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView>
+                                    <Grid RowSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <ffimageloading:CachedImage Grid.Column="0" Grid.RowSpan="4"
+                                                                    Style="{StaticResource CarsForSaleImage}"
+                                                                    Source = "{Binding ImageUrl}">
+                                        </ffimageloading:CachedImage>
+
+                                        <Label Text="{Binding ShortDescription}" Style="{StaticResource ListOfCarsModelLabel}" Grid.Column="1" Grid.Row="0"/>
+                                        <Label Text="{Binding Year, StringFormat='{0}'}"     Grid.Column="1" Grid.Row="1" />
+                                        <Label Text="{Binding Run,  StringFormat='{0} Km'}"  Grid.Column="1" Grid.Row="2"/>
+                                        <Label Text="{Binding Price, StringFormat='{0} Kr'}" Grid.Column="1" Grid.Row="3"/>
+
+                                        <Frame BackgroundColor="LightGray" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0"
+                                               HasShadow="False" HeightRequest="1" Margin="0, 7" Padding="0"/>
+                                    </Grid>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </sflv:SfListView.ItemTemplate>
+
+                    <sflv:SfListView.DataSource>
+                        <dataSource:DataSource>
+                            <dataSource:DataSource.GroupDescriptors>
+                                <dataSource:GroupDescriptor PropertyName="Make"/>
+                            </dataSource:DataSource.GroupDescriptors>
+                        </dataSource:DataSource>
+                    </sflv:SfListView.DataSource>
+
+                    <sflv:SfListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" Padding="10, 0, 0, 0">
+                                        <Label Text="{Binding Key, StringFormat='{0} '}" Style="{StaticResource ListOfCarsGroupLabel}" />
+                                        <Label Text="{Binding Count, StringFormat='({0})'}"  Style="{StaticResource ListOfCarsGroupLabel}"/>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </sflv:SfListView.GroupHeaderTemplate>
+                </sflv:SfListView>
+
+            </pulltoRefresh:SfPullToRefresh.PullableContent>
+        </pulltoRefresh:SfPullToRefresh>
+
+    </StackLayout>
+
+</ContentPage>

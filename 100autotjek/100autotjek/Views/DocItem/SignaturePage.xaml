@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize"
+             xmlns:controls="clr-namespace:_100autotjek.Controls"
+             xmlns:views="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="_100autotjek.Views.DocItem.SignaturePage"
+             Title="{x:Static resx:AppResources.SignatureTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout BackgroundColor="{StaticResource WhiteColor}">
+
+        <controls:CustomStepProgressBar StepColor="{StaticResource RhinoColor}" Steps="5" StepSelected="4" />
+
+        <Grid Style="{StaticResource SignatureGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="{x:Static resx:AppResources.SignatureSelectedCar}" Style="{StaticResource SignatureLabel}" Grid.Row="0"/>
+            <Label Text="{Binding SelectedCarInfo}" Style="{StaticResource SignatureLabel}" FontAttributes="Bold" Grid.Row="1"/>
+
+            <Label Text="{x:Static resx:AppResources.SignatureText}" Style="{StaticResource SignatureLabel}" Grid.Row="2" Margin="0, 20, 0, 0"/>
+
+            <views:SignaturePadView x:Name="Signature" BackgroundColor="WhiteSmoke" Style="{StaticResource SignaturePadView}" Grid.Row="3"/>
+
+            <ActivityIndicator Style="{StaticResource LoadingActivityIndicator}" Grid.Row="4"/>
+
+            <Button Style="{StaticResource ContinueButton}" Command="{Binding SaveTestDriveCommand}" Margin="0, 20, 0, 0" Grid.Row="5"/>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

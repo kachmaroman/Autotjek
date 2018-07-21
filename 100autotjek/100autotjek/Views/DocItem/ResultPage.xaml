@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize;"
+             xmlns:controls="clr-namespace:_100autotjek.Controls"
+             x:Class="_100autotjek.Views.DocItem.ResultPage"
+             Title="{x:Static resx:AppResources.ResultTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout BackgroundColor="{StaticResource WhiteColor}">
+
+        <controls:CustomStepProgressBar StepColor="{StaticResource RhinoColor}" Steps="5" StepSelected="5" />
+
+        <Grid Padding="10" VerticalOptions="FillAndExpand" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Style="{StaticResource ResultStackLayout}">
+                <Image Source="{Binding ImageResult}" HeightRequest="200" WidthRequest="200" />
+                <Label Text="{Binding MessageResult}" Style="{StaticResource ResultLabel}" />
+            </StackLayout>
+
+            <Button Style="{StaticResource ContinueButton}" Command="{Binding MainMenuCommand}" Grid.Row="1"/>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_100autotjek.Views.MainMenu.MainMenuItem">
+
+    <ContentView.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0"/>
+        </OnPlatform>
+    </ContentView.Padding>
+
+    <StackLayout>
+        <Image x:Name="BtnImage"
+               Style="{StaticResource MainMenuImageOptionImage}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnPickMenuItem" 
+                                      NumberOfTapsRequired="1"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Label x:Name="BtnName"
+               Style="{StaticResource MainMenuNameOptionLabel}"/>
+    </StackLayout>
+
+</ContentView>

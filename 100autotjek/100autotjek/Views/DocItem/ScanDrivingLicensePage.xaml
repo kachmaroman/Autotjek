@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize"
+             xmlns:controls="clr-namespace:_100autotjek.Controls"
+             x:Class="_100autotjek.Views.DocItem.ScanDrivingLicensePage"
+             Title="{x:Static resx:AppResources.ScanDrivingTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="0" Padding="0, 0, 0, 10"
+                 BackgroundColor="{StaticResource WhiteColor}">
+
+        <controls:CustomStepProgressBar StepColor="#293862" Steps="5" StepSelected="1" />
+        
+        <StackLayout VerticalOptions="FillAndExpand" Spacing="0" Padding="0, 5">
+            <Label Style="{StaticResource ScanDrivingLicenseInstructLabel}"/>
+            <Image Style="{StaticResource ScanDrivingLicenseInstructImage}"/>
+
+            <ActivityIndicator Style="{StaticResource LoadingActivityIndicator}"/>
+        </StackLayout>
+
+        <StackLayout Padding="10" Spacing="0">
+            <Label Style="{StaticResource ScanDrivingLicenseCprNumberLabel}"/>
+            <Entry Style="{StaticResource ScanDrivingLicenseCprNumberEntry}" 
+                   TextChanged="OnCPRNumberChanged"/>
+        </StackLayout>
+
+        <StackLayout x:Name="StackLayout" Style="{StaticResource ScanDrivingLicenseButtonsStackLayout}">
+            <Frame x:Name="TakePicture" Style="{StaticResource RhinoCircleFrame}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TakePictureCommand}"/>
+                </Frame.GestureRecognizers>
+                <Image Style="{StaticResource ScanDrivingLicensePhotoImage}"/>
+            </Frame>
+
+            <Frame Style="{StaticResource RhinoCircleFrame}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContinueCommand}"/>
+                </Frame.GestureRecognizers>
+                <Label Style="{StaticResource ContinueLabel}"/>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize"
+             xmlns:controls="clr-namespace:_100autotjek.Controls"
+             x:Class="_100autotjek.Views.Search.SearchCarPage"
+             Title="{x:Static resx:AppResources.SearchCarTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid Style="{StaticResource SearchCarGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Spacing="5" Grid.Row="0">
+            <Label Text="{x:Static resx:AppResources.SearchCarByPlate}" 
+                   Style="{StaticResource SearchCarLabel}"/>
+            <controls:CustomImageEntry Text="{Binding PlateNumber}"
+                Style="{StaticResource SearchCarImageEntry}" 
+                TextChanged="OnPlateNumberChanged">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>None</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </controls:CustomImageEntry>
+        </StackLayout>
+
+        <StackLayout Spacing="5" Grid.Row="1">
+            <Label Text="{x:Static resx:AppResources.SearchCarByVIN}" 
+                   Style="{StaticResource SearchCarLabel}"/>
+            <Entry Text="{Binding VinNumber}"
+                Style="{StaticResource SearchCarImageEntry}">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>None</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </Entry>
+        </StackLayout>
+
+        <Button Style="{StaticResource SearchCarButton}" Command="{Binding SearchCarCommand}" Grid.Row="2"/>
+
+    </Grid>
+
+</ContentPage>

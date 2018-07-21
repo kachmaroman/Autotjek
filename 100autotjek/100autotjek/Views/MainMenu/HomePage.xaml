@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mainMenu="clr-namespace:_100autotjek.Views.MainMenu;assembly=100autotjek"
+             x:Class="_100autotjek.Views.MainMenu.HomePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="LogoutIcon.png" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="0">
+        <mainMenu:MainMenuPage Style="{StaticResource MainMenuContentView}"/>
+    </StackLayout>
+
+</ContentPage>

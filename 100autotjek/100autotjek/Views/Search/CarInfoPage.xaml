@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:_100autotjek.Localize"
+             x:Class="_100autotjek.Views.Search.CarInfoPage"
+             Title="{x:Static resx:AppResources.CarInfoTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="MenuIcon.png" Command="{Binding MainMenuCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="20" BackgroundColor="{StaticResource WhiteColor}">
+
+            <Image Style="{StaticResource EditCarInfoImage}">
+                <Image.Source>
+                    <UriImageSource Uri="{Binding Car.ImageUrl}"
+                                    CachingEnabled="False"/>
+                </Image.Source>
+            </Image>
+
+            <Label Text="{Binding FullCarName}" Style="{StaticResource CarsForSaleLabel}" FontSize="Large"/>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoRegistrationDate}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Label Text="{Binding Car.LastRegistrationDate, StringFormat='{0:MM.dd.yyyy}'}" TextColor="{StaticResource RhinoColor}"/>
+            </StackLayout>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoEquipment}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Label Text="{Binding Car.Equipment}" TextColor="{StaticResource RhinoColor}"/>
+            </StackLayout>
+
+            <StackLayout Spacing="0">
+                <Label Text="{x:Static resx:AppResources.CarInfoCheckDate}" Style="{StaticResource CarsForSaleLabel}"/>
+                <Label Text="{Binding Car.ServiceCheckDate, StringFormat='{0:MM.dd.yyyy}'}" TextColor="{StaticResource RhinoColor}"/>
+            </StackLayout>
+
+            <Button Text="{x:Static resx:AppResources.CarInfoBack}" 
+                    Command="{Binding BackCommand}" 
+                    Style="{StaticResource ContinueButton}"/>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

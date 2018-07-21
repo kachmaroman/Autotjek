@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MainMenuCarsForSale" xml:space="preserve">
+    <value>BILER TIL SALG</value>
+  </data>
+  <data name="MainMenuDoc" xml:space="preserve">
+    <value>KØRESEDDEL</value>
+  </data>
+  <data name="MainMenuNumberPlate" xml:space="preserve">
+    <value>PRØVEPLADER</value>
+  </data>
+  <data name="MainMenuPhone" xml:space="preserve">
+    <value>OPFØLGNING</value>
+  </data>
+  <data name="MainMenuSearch" xml:space="preserve">
+    <value>OPSLAG</value>
+  </data>
+  <data name="MainMenuSticker" xml:space="preserve">
+    <value>BILLEDE MED LOGO</value>
+  </data>
+  <data name="ContinueButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ScanDrivingCPRNumber" xml:space="preserve">
+    <value>Eller indtast CPR</value>
+  </data>
+  <data name="ScanDrivingInstructionOfScan" xml:space="preserve">
+    <value>Placer kørekortet så CPR-nr. (4d) er i rammen</value>
+  </data>
+  <data name="ScanDrivingTitle" xml:space="preserve">
+    <value>CPR NUMMER</value>
+  </data>
+  <data name="Alert_NoCameraErrorTitle" xml:space="preserve">
+    <value>Kamera fejl</value>
+  </data>
+  <data name="Alert_NoCameraErrorMessage" xml:space="preserve">
+    <value>Intet kamera til rådighed</value>
+    <comment>NoCameraAvailable</comment>
+  </data>
+  <data name="Alert_Cancel" xml:space="preserve">
+    <value>Afbestille</value>
+  </data>
+  <data name="Alert_PermissionErrorTitle" xml:space="preserve">
+    <value>Tilladelser nægtet</value>
+    <comment>Permissions Denied</comment>
+  </data>
+  <data name="Alert_PermissionErrorMessage" xml:space="preserve">
+    <value>Kameraet er utilgængeligt</value>
+    <comment>Camera is inaccessible</comment>
+  </data>
+  <data name="Alert_InternetConnectionErrorMessage" xml:space="preserve">
+    <value>Tjek din internet forbindelse og prøv igen.</value>
+  </data>
+  <data name="Alert_InternetConnectionErrorTitle" xml:space="preserve">
+    <value>Ingen internetforbindelse</value>
+  </data>
+  <data name="Alert_CPRNumberErrorMessage" xml:space="preserve">
+    <value>Kan ikke genkende CPR-nummer. Prøv venligst igen eller indtast det manuelt.</value>
+  </data>
+  <data name="Alert_CPRNumberErrorTitle" xml:space="preserve">
+    <value>CPR nummer fejl</value>
+  </data>
+  <data name="TestDriveInfoEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="TestDriveInfoPhone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="TestDriveInfoPlateNumber" xml:space="preserve">
+    <value>Prøveplader</value>
+  </data>
+  <data name="TestDriveInfoEndTime" xml:space="preserve">
+    <value>Slut</value>
+  </data>
+  <data name="TestDriveInfoStartTime" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="TestDriveInfoTime" xml:space="preserve">
+    <value>Prøveperiode</value>
+  </data>
+  <data name="TestDriveInfoTitle" xml:space="preserve">
+    <value>KØRESEDDEL</value>
+  </data>
+  <data name="Alert_EnableCameraAccess" xml:space="preserve">
+    <value>Aktivér adgang</value>
+  </data>
+  <data name="TestDriveInfoPickerTitle" xml:space="preserve">
+    <value>Vælg</value>
+  </data>
+  <data name="DriverInfoTitle" xml:space="preserve">
+    <value>KØRESEDDEL</value>
+  </data>
+  <data name="TestDriveInfoDriver" xml:space="preserve">
+    <value>Kunde</value>
+  </data>
+  <data name="ListOfCarsRemove" xml:space="preserve">
+    <value>SLET</value>
+  </data>
+  <data name="ListOfCarsSearch" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="ListOfCarsTitle" xml:space="preserve">
+    <value>BILER TIL SALG</value>
+  </data>
+  <data name="Alert_NumberPlatesLoadErrorMessage" xml:space="preserve">
+    <value>Kunne ikke indlæse nummerplader. Prøv igen.</value>
+  </data>
+  <data name="Alert_NumberPlatesLoadErrorTitle" xml:space="preserve">
+    <value>Forbindelsen mislykkedes</value>
+  </data>
+  <data name="Alert_DriverInfoInvalidErrorMessage" xml:space="preserve">
+    <value>Driver info er ikke gyldig. Prøv igen.</value>
+  </data>
+  <data name="Alert_DriverInfoInvalidErrorTitle" xml:space="preserve">
+    <value>Driver info fejl</value>
+  </data>
+  <data name="SignatureClear" xml:space="preserve">
+    <value>SLET</value>
+  </data>
+  <data name="SignatureSelectedCar" xml:space="preserve">
+    <value>Du har valgt følgende bil:</value>
+  </data>
+  <data name="SignatureText" xml:space="preserve">
+    <value>Bedes du underskrive dit navn:</value>
+  </data>
+  <data name="SignatureTitle" xml:space="preserve">
+    <value>UNDERSKRIFT</value>
+  </data>
+  <data name="SignatureCaption" xml:space="preserve">
+    <value>tegn over linjen</value>
+  </data>
+  <data name="ResultErrorMessage" xml:space="preserve">
+    <value>Error with sending email to dealer! Please try again.</value>
+  </data>
+  <data name="ResultSuccessMessage" xml:space="preserve">
+    <value>The document has been successfully generated and sent at your email.</value>
+  </data>
+  <data name="ResultTitle" xml:space="preserve">
+    <value>RESULTAT</value>
+  </data>
+  <data name="BusyIndicatorTitle" xml:space="preserve">
+    <value>Indlæser...</value>
+    <comment>Loading</comment>
+  </data>
+  <data name="CarInfoCheckDate" xml:space="preserve">
+    <value>Næste synsdato</value>
+  </data>
+  <data name="CarInfoEquipment" xml:space="preserve">
+    <value>Udstyr</value>
+  </data>
+  <data name="CarInfoPrice" xml:space="preserve">
+    <value>Pris</value>
+  </data>
+  <data name="CarInfoRegistrationDate" xml:space="preserve">
+    <value>Første registrering dato</value>
+  </data>
+  <data name="CarInfoRun" xml:space="preserve">
+    <value>Kilometertal</value>
+  </data>
+  <data name="EditCarInfoTitle" xml:space="preserve">
+    <value>BIL DETALJER</value>
+  </data>
+  <data name="CarsForSaleEdit" xml:space="preserve">
+    <value>REDIGERE</value>
+  </data>
+  <data name="CarsForSaleSave" xml:space="preserve">
+    <value>GEM</value>
+  </data>
+  <data name="Alert_DriverInfoLoadErrorMessage" xml:space="preserve">
+    <value>Kunne ikke indlæse driver oplysninger. Prøv igen.</value>
+  </data>
+  <data name="Alert_DriverInfoLoadErrorTitle" xml:space="preserve">
+    <value>Forbindelsen mislykkedes</value>
+  </data>
+  <data name="SearchCarByPlate" xml:space="preserve">
+    <value>Sidst registrerede nr.plade</value>
+  </data>
+  <data name="SearchCarByVIN" xml:space="preserve">
+    <value>Eller VIN-rn.</value>
+  </data>
+  <data name="SearchCarSearch" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="SearchCarTitle" xml:space="preserve">
+    <value>OPSLAG HOS SKAT</value>
+  </data>
+  <data name="CarInfoBack" xml:space="preserve">
+    <value>Tilbage</value>
+  </data>
+  <data name="CarInfoTitle" xml:space="preserve">
+    <value>BIL DETALJER</value>
+  </data>
+</root>
